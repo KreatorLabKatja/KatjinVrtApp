@@ -6,7 +6,7 @@
  * @author Katja Horvat
  *
  */
-public class ToplaGreda extends Greda {
+public class ToplaGreda extends Greda implements Naprava {
 	
 	//dodatne lastnosti tople grede
 	private boolean odprta;
@@ -34,6 +34,8 @@ public class ToplaGreda extends Greda {
 	public boolean odpri() {
 		//če je greda zaprta
 		if(!odprta) {
+			//zažene motor
+			zazeniMotor(1);
 			//jo odpre
 			odprta = true;
 			//javi, da jo je uspešno odprl
@@ -56,6 +58,8 @@ public class ToplaGreda extends Greda {
 		public boolean zapri() {
 			//če je greda odprta
 			if(odprta) {
+				//zažene motor
+				zazeniMotor(2);
 				//jo zapre
 				odprta = false;
 				//javi, da jo je uspešno zaprl
@@ -71,4 +75,12 @@ public class ToplaGreda extends Greda {
 				return false;
 			}
 		}
+
+
+	@Override
+	public boolean zazeniMotor(int smer) {
+		// TODO Auto-generated method stub
+		System.out.println("Zaganjam motor v smer " + smer + ".");
+		return false;
+	}
 }
