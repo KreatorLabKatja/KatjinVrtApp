@@ -14,8 +14,14 @@ public class StalnaGreda extends Greda {
 	public StalnaGreda(int d, int s, String o, String v, int r) {
 		super(d, s, o);
 		razmak = r;
-		prekoplji();
-		posadi(v);
+		try {
+			prekoplji();
+			posadi(v);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	

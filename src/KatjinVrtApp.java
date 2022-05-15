@@ -33,7 +33,13 @@ public class KatjinVrtApp {
 		StalnaGreda petaGreda = new StalnaGreda (500, 60, "S1", "razlicna zelisca", 25);
 		
 		//prekopamo prvo gredo
-		System.out.println("Prekopavam gredo " + prvaGreda.getOznaka() + " in na kompost mecem " + prvaGreda.prekoplji() +".");
+		try {
+			System.out.println("Prekopavam gredo " + prvaGreda.getOznaka() + " in na kompost mecem " + prvaGreda.prekoplji() +".");
+		} 
+		
+		catch (Exception e1) {
+			System.out.println("Napaka pri prekopavanju: " +  e1.getMessage());
+		}
 		
 		//posadimo novo vrtnino na prvo gredo
 		try{
@@ -53,7 +59,7 @@ public class KatjinVrtApp {
 		
 		catch(Exception e){
 			//napaka pri vnosu
-			System.out.println("Napaka pri izbiri vrtnine " + e.toString());
+			System.out.println("Napaka pri sajenju vrtnine " + e.toString());
 		}
 		
 		//zalijemo prvo gredo

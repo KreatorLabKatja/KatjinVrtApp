@@ -34,7 +34,12 @@ public class Greda {
 	
 	//metoda, ki prekoplje gredo
 	//vrne: prejšnjo vrtnino
-	public String prekoplji() {
+	public String prekoplji() throws Exception {
+		//če je greda že prekopana, vržemo izjemo
+		if(prekopana) {
+			throw new Exception("Greda " + getOznaka() + " je že prekopana!");
+		}
+		
 		//spremeni prekopana v true
 		prekopana = true;
 		
@@ -58,7 +63,7 @@ public class Greda {
 	//metoda, ki posadi vrtnino
 	//vhod: kaj naj posadim (nova vrtnina)
 	//izhod: ali je bilo uspešno posajeno
-	public boolean posadi(String novaVrtnina) {
+	public boolean posadi(String novaVrtnina) throws Exception {
 		//preveri ali je greda prekopana
 		if(prekopana) {
 			//posadi novo vrtnino
@@ -73,8 +78,7 @@ public class Greda {
 		
 		//če ni prekopana, vrne, da ne more posaditi nove vrtnine
 		else {
-			System.out.println("Greda " + oznaka + " ni prekopana.");
-			return false;
+			throw new Exception("Greda " + getOznaka() + " ni prekopana!");
 		}
 		
 		
