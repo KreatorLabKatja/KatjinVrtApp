@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 /*
  * 
@@ -14,6 +16,9 @@ public class KatjinVrtApp {
 	//Deklariramo lastnost za vnos iz konzole
 	private static BufferedReader in;
 
+	//Deklariramo zasebno statično lestnost seznam gred
+	private static ArrayList<Greda> grede;
+		
 	//Deklariamo javno statično metodo main
 	//prejme:	seznam vhodnih parametrov
 	//vrne:		/
@@ -21,9 +26,53 @@ public class KatjinVrtApp {
 		
 		//Inicializiramo objekt in 
 		in = new BufferedReader(new InputStreamReader(System.in));
-				
+
+		//Inicializiramo seznam steklenic
+		grede = new ArrayList<Greda>();
+	
 		//v konzolo izpišemo pozdrav
 		System.out.println("Pozdravljeni na Katjinem vrtu!");
+		
+		//Aplikacija vpraša uporabnika, koliko gred ima vrt in inicializira novo spremenjljivko
+		int stGred = 0;
+		
+		try {
+			System.out.print("Koliko gred ima tvoj vrt? ");
+			stGred = Integer.parseInt(in.readLine());
+		} 
+		
+		catch (Exception e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} 
+		
+		
+		for(int c = 0; c < stGred; c++) {
+			System.out.println("Vnos " + (c+1) + ". grede:");
+			
+			//preberemo dolžino, širino in oznako
+			try {
+				System.out.print("Oznaka: ");
+				String o = in.readLine();
+				
+				System.out.print("Dolzina (v cm): ");
+				int d = Integer.parseInt(in.readLine());
+				
+				System.out.print("Sirina (v cm): ");
+				int s = Integer.parseInt(in.readLine());
+				
+				//dodamo nov objekt v seznam
+				grede.add(new Greda(d, s, o));
+			} 
+			
+			catch (Exception e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} 
+			
+			
+		}
+		
 		
 		//Ustvarimo objekt in ga deklariramo
 		Greda prvaGreda = new Greda (250, 60, "A1");
