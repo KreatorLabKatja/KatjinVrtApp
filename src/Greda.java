@@ -96,5 +96,26 @@ public class Greda {
 		//vrne skupno zalitost
 		return zalitost;
 	}
+
+	/**
+	 * @return the dolzina
+	 */
+	public int getDolzina() {
+		return dolzina;
+	}
+
+	/**
+	 * @return the sirina
+	 */
+	public int getSirina() {
+		return sirina;
+	}
+
+	/**
+	 * @return the vrtnina
+	 */
+	public String getVrtnina() {
+		return vrtnina;
+	}
 	
 }

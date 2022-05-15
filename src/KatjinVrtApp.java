@@ -29,7 +29,9 @@ public class KatjinVrtApp {
 		Greda prvaGreda = new Greda (250, 60, "A1");
 		Greda drugaGreda = new Greda (250, 60, "A2");
 		Greda tretjaGreda = new Greda (250, 60, "B1");
-	
+		ToplaGreda cetrtaGreda = new ToplaGreda (300, 200, "T1");
+		StalnaGreda petaGreda = new StalnaGreda (500, 60, "S1", "razlicna zelisca", 25);
+		
 		//prekopamo prvo gredo
 		System.out.println("Prekopavam gredo " + prvaGreda.getOznaka() + " in na kompost mecem " + prvaGreda.prekoplji() +".");
 		
@@ -72,7 +74,23 @@ public class KatjinVrtApp {
 			System.out.println("Napaka pri zalivanju " + e.toString());
 		}
 		
+		//uporabnim metodo odpiranja tople grede
+		try {
+			for(int c =0; c<2; c++) {
+				cetrtaGreda.odpri();
+				Thread.sleep(2000);
+				cetrtaGreda.zapri();
+				Thread.sleep(2000);
+			}
+		} 
 		
+		catch(Exception e){
+			//napaka pri vnosu
+			System.out.println("Napaka pri odpiranju in zapiranju " + e.toString());
+		}
+		
+		//izpišemo podatke o stalni gredi
+		System.out.println("Na stalni gredi " + petaGreda.getOznaka() + " je posajeno " + petaGreda.getSteviloRastlin() + " " + petaGreda.getVrtnina() + ".");
 	}
 
 }
